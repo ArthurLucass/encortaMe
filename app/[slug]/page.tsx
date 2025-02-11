@@ -56,13 +56,21 @@ export default function AdRedirectPage() {
     switch (category) {
       case "video":
         return (
-          <a href="SEU_LINK_AFILIADO_YOUTUBE" target="_blank" rel="noopener noreferrer">
+          <a
+            href="SEU_LINK_AFILIADO_YOUTUBE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             🎬 Assine o YouTube Premium e veja vídeos sem anúncios!
           </a>
         );
       case "ecommerce":
         return (
-          <a href="SEU_LINK_AFILIADO_SHOPEE" target="_blank" rel="noopener noreferrer">
+          <a
+            href="SEU_LINK_AFILIADO_SHOPEE"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src="https://cf.shopee.com.br/file/abfa3c3a9c323f7c1f6a7c25ed4732dd"
               alt="Promoção Shopee"
@@ -72,13 +80,21 @@ export default function AdRedirectPage() {
         );
       case "news":
         return (
-          <a href="SEU_LINK_AFILIADO_NOTICIAS" target="_blank" rel="noopener noreferrer">
+          <a
+            href="SEU_LINK_AFILIADO_NOTICIAS"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             📰 Leia as últimas notícias com desconto especial!
           </a>
         );
       case "gaming":
         return (
-          <a href="SEU_LINK_AFILIADO_GAMES" target="_blank" rel="noopener noreferrer">
+          <a
+            href="SEU_LINK_AFILIADO_GAMES"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             🎮 Oferta especial para gamers! Jogos em promoção.
           </a>
         );
@@ -104,11 +120,20 @@ export default function AdRedirectPage() {
         <p className="text-lg text-red-500">{error}</p>
       ) : (
         <>
-          <h1 className="text-2xl font-bold text-blue-600 mb-4">🔗 Aguarde {countdown}s</h1>
-          <p className="text-gray-700 mb-6">Você será redirecionado para o link em alguns segundos.</p>
-          <div className="bg-white p-4 shadow-md rounded-lg w-full max-w-md text-center mb-6">{renderAd()}</div>
+          <h1 className="text-2xl font-bold text-blue-600 mb-4">
+            🔗 Aguarde {countdown}s
+          </h1>
+          <p className="text-gray-700 mb-6">
+            Você será redirecionado para o link em alguns segundos.
+          </p>
+          <div className="bg-white p-4 shadow-md rounded-lg w-full max-w-md text-center mb-6">
+            {renderAd()}
+          </div>
           {countdown === 0 && (
-            <button onClick={() => router.replace(originalUrl)} className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition">
+            <button
+              onClick={() => router.replace(originalUrl)}
+              className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-600 transition"
+            >
               Ir para o Site
             </button>
           )}
