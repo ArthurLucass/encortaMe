@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
-
 export async function GET(req: NextRequest) {
+  const prisma = new PrismaClient();
   try {
     const { searchParams } = new URL(req.url);
     const slug = searchParams.get("slug");
@@ -24,5 +23,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ clicks: link.clicks });
   } catch (error) {
     return NextResponse.json({ error: "Erro interno do servidor" }, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
   }
 }

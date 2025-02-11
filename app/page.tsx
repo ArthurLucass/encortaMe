@@ -29,7 +29,7 @@ export default function Home() {
       } else {
         setShortUrl(data.shortUrl);
       }
-    } catch (error) {
+    } catch (err) {
       setError("Erro ao encurtar URL");
     }
 

@@ -25,10 +25,12 @@ export async function GET(req: NextRequest) {
       where: { shortUrl: slug },
       data: { clicks: { increment: 1 } },
     });
-
     return NextResponse.json({ originalUrl: link.originalUrl });
   } catch (error) {
     console.error("Erro ao buscar o link:", error);
     return NextResponse.json({ error: "Erro interno do servidor" }, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
   }
 }
+

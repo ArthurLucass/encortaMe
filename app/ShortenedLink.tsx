@@ -9,8 +9,17 @@ function ShortenedLink({ shortUrl }: { shortUrl: string }) {
 
     const slug = shortUrl.split("/").pop(); // 🔥 Extrai apenas o slug
     fetch(`/api/stats?slug=${slug}`)
-      .then((res) => res.json())
-      .then((data) => setClicks(data.clicks || 0));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .then((data) => setClicks(data.clicks || 0))
+      .catch((error) => {
+        console.error('There was a problem with the fetch operation:', error);
+        setClicks(0);
+      });
   }, [shortUrl]);
 
   return (

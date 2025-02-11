@@ -14,10 +14,12 @@ datasource db {
 }
 
 model Link {
-  id           String  @id @default(uuid())
-  originalUrl  String
-  shortUrl     String  @unique
-  clicks       Int     @default(0)
-  category     String?  
+  id           String   @id @default(uuid()) // 🔥 ID deve ser String e UUID
+  originalUrl  String   @unique
+  shortUrl     String   @unique
+  category     String?  // Categoria opcional
+  clicks       Int      @default(0)
+  createdAt    DateTime @default(now())
 }
+
 

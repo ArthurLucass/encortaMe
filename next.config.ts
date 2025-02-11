@@ -13,7 +13,8 @@ module.exports = {
       {
         source: "/:path*",
         has: [{ type: "host", value: "encorta.me" }],
-        destination: "https://encorta.me/:path*",
+        destination: "https://localhost:3000/:path*",
+        // destination: "https://encorta.me/:path*",
         permanent: true,
       },
     ];

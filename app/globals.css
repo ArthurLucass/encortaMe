@@ -9,8 +9,6 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-
-
 /* Estilização do contêiner principal */
 .container {
   @apply max-w-2xl mx-auto p-6;

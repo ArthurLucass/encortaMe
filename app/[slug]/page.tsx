@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function AdRedirectPage() {
   const { slug } = useParams();
@@ -62,7 +63,7 @@ export default function AdRedirectPage() {
       case "ecommerce":
         return (
           <a href="SEU_LINK_AFILIADO_SHOPEE" target="_blank" rel="noopener noreferrer">
-            <img
+            <Image
               src="https://cf.shopee.com.br/file/abfa3c3a9c323f7c1f6a7c25ed4732dd"
               alt="Promoção Shopee"
               className="w-full rounded-lg"

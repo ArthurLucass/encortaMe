@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "URL não fornecida" }, { status: 400 });
     }
 
-    let slug = customSlug ? customSlug.trim().toLowerCase().replace(/\s+/g, "-") : Math.random().toString(36).substr(2, 6);
+    const slug = customSlug ? customSlug.trim().toLowerCase().replace(/\s+/g, "-") : Math.random().toString(36).substring(2, 8);
 
     const existing = await prisma.link.findUnique({ where: { shortUrl: slug } });
     if (existing) {
