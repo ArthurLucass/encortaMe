@@ -39,7 +39,9 @@ export default function Home() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center">
-        <h1 className="text-3xl font-bold text-blue-600 mb-6">🔗 Encurtador de Links</h1>
+        <h1 className="text-3xl font-bold text-blue-600 mb-6">
+          🔗 Encurtador de Links
+        </h1>
 
         <input
           type="text"
@@ -70,7 +72,12 @@ export default function Home() {
         {shortUrl && (
           <div className="mt-6 p-4 bg-gray-200 rounded-lg text-center shadow-md">
             <span className="text-gray-700 font-medium">URL Curta:</span>
-            <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 ml-2 font-bold break-words">
+            <a
+              href={shortUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 ml-2 font-bold break-words"
+            >
               {shortUrl}
             </a>
           </div>

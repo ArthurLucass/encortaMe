@@ -9,7 +9,10 @@ export async function GET(req: NextRequest) {
     const slug = searchParams.get("slug");
 
     if (!slug) {
-      return NextResponse.json({ error: "Slug não fornecido" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Slug não fornecido" },
+        { status: 400 }
+      );
     }
 
     const link = await prisma.link.findUnique({
@@ -17,7 +20,10 @@ export async function GET(req: NextRequest) {
     });
 
     if (!link) {
-      return NextResponse.json({ error: "Link não encontrado" }, { status: 404 });
+      return NextResponse.json(
+        { error: "Link não encontrado" },
+        { status: 404 }
+      );
     }
 
     // 🔥 Incrementa o contador de cliques
@@ -28,9 +34,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ originalUrl: link.originalUrl });
   } catch (error) {
     console.error("Erro ao buscar o link:", error);
-    return NextResponse.json({ error: "Erro interno do servidor" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Erro interno do servidor" },
+      { status: 500 }
+    );
   } finally {
     await prisma.$disconnect();
   }
 }
-
